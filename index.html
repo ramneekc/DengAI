@@ -8,14 +8,142 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
     <style>
-        /* Remove the navbar's default margin-bottom and rounded borders */
-        /* .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-    } */
+        body {
+            font: 400 15px Lato, sans-serif;
+            line-height: 1.8;
+            color: #818181;
+        }
+
+        h2 {
+            font-size: 24px;
+            text-transform: uppercase;
+            color: #303030;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        h4 {
+            font-size: 19px;
+            line-height: 1.375em;
+            color: #303030;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        .jumbotron {
+            background-color: #f4511e;
+            color: #fff;
+            padding: 100px 25px;
+            margin-bottom: 30px;
+            font-family: Montserrat, sans-serif;
+        }
+
+        .container-fluid {
+            padding: 60px 50px;
+        }
+
+        .bg-grey {
+            background-color: #f6f6f6;
+        }
+
+        .logo-small {
+            color: #f4511e;
+            font-size: 50px;
+        }
+
+        .logo {
+            color: #f4511e;
+            font-size: 200px;
+        }
+
+        .thumbnail {
+            padding: 0 0 15px 0;
+            border: none;
+            border-radius: 0;
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            margin-bottom: 10px;
+        }
+
+        .carousel-control.right,
+        .carousel-control.left {
+            background-image: none;
+            color: #f4511e;
+        }
+
+        .carousel-indicators li {
+            border-color: #f4511e;
+        }
+
+        .carousel-indicators li.active {
+            background-color: #f4511e;
+        }
+
+        .item h4 {
+            font-size: 19px;
+            line-height: 1.375em;
+            font-weight: 400;
+            font-style: italic;
+            margin: 70px 0;
+        }
+
+        .item span {
+            font-style: normal;
+        }
+
+        .panel {
+            border: 1px solid #f4511e;
+            border-radius: 0 !important;
+            transition: box-shadow 0.5s;
+        }
+
+        .panel:hover {
+            box-shadow: 5px 0px 40px rgba(0, 0, 0, .2);
+        }
+
+        .panel-footer .btn:hover {
+            border: 1px solid #f4511e;
+            background-color: #fff !important;
+            color: #f4511e;
+        }
+
+        .panel-heading {
+            color: #fff !important;
+            background-color: #f4511e !important;
+            padding: 25px;
+            border-bottom: 1px solid transparent;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+
+        .panel-footer {
+            background-color: white !important;
+        }
+
+        .panel-footer h3 {
+            font-size: 32px;
+        }
+
+        .panel-footer h4 {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .panel-footer .btn {
+            margin: 15px 0;
+            background-color: #f4511e;
+            color: #fff;
+        }
+
         .navbar {
             margin-bottom: 0;
             background-color: #f4511e;
@@ -44,56 +172,86 @@
             color: #fff !important;
         }
 
-        .jumbotron {
-            background-color: #f4511e;
-            color: #fff;
-            padding: 100px 25px;
-            font-family: Montserrat, sans-serif;
+        footer .glyphicon {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #f4511e;
         }
 
-        /* Add a gray background color and some padding to the footer */
-        footer {
-            background-color: #f2f2f2;
-            padding: 25px;
+        .slideanim {
+            visibility: hidden;
         }
 
-        .carousel-inner img {
-            width: 100%;
-            /* Set width to 100% */
-            margin: auto;
-            min-height: 200px;
+        .slide {
+            animation-name: slide;
+            -webkit-animation-name: slide;
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            visibility: visible;
         }
 
-        /* Hide the carousel text when the screen is less than 600 pixels wide */
-        @media (max-width: 600px) {
-            .carousel-caption {
-                display: none;
+        @keyframes slide {
+            0% {
+                opacity: 0;
+                transform: translateY(70%);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0%);
+            }
+        }
+
+        @-webkit-keyframes slide {
+            0% {
+                opacity: 0;
+                -webkit-transform: translateY(70%);
+            }
+
+            100% {
+                opacity: 1;
+                -webkit-transform: translateY(0%);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .col-sm-4 {
+                text-align: center;
+                margin: 25px 0;
+            }
+
+            .btn-lg {
+                width: 100%;
+                margin-bottom: 35px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .logo {
+                font-size: 150px;
             }
         }
     </style>
 </head>
 
-<body>
+<body id="myPage" onload="initViz();" data-spy="scroll" data-target=".navbar" data-offset="60">
 
     <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
+        <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Logo</a>
+                <a class="navbar-brand" href="#myPage">DengAi</a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#predictions">Predictions</a></li>
-                    <li><a href="#">Conclusion</a></li>
-                </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li class="active"><a href="#myPage">Home</a></li>
+                    <li><a href="#charts">Charts</a></li>
+                    <li><a href="#predictions">Predictions</a></li>
+                    <li><a href="#conclusion">Conclusion</a></li>
                 </ul>
             </div>
         </div>
@@ -104,53 +262,17 @@
         <p>Short Project description</p>
     </div>
 
-    <div class="container-fuid text-center">
+    <div id="charts" class="container-fuid text-center">
+        <br><br>
         <div class="row">
             <div class="col-md-8">
-                <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                    <!-- Indicators -->
-                    <ol class="carousel-indicators">
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#myCarousel" data-slide-to="1"></li>
-                    </ol>
-            
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner" role="listbox">
-                        <div class="item active">
-                            <img src="https://placehold.it/1200x400?text=IMAGE" alt="Image">
-                            <div class="carousel-caption">
-                                <h3>Sell $</h3>
-                                <p>Money Money.</p>
-                            </div>
-                        </div>
-            
-                        <div class="item">
-                            <img src="https://placehold.it/1200x400?text=Another Image Maybe" alt="Image">
-                            <div class="carousel-caption">
-                                <h3>More Sell $</h3>
-                                <p>Lorem ipsum...</p>
-                            </div>
-                        </div>
-                    </div>
-            
-                    <!-- Left and right controls -->
-                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
+                <div id="vizContainer" style="width:1200px; height:550px;"></div>
             </div>
-    
+
             <div class="col-md-4 well">
                 <p>Context: About mosquito-borne disease</p>
             </div>
-        </div>
-
-        <br>
+        </div><br>
 
         <div class="row">
             <div class="col-md-6">
@@ -162,14 +284,9 @@
         </div>
     </div>
 
-    <br>
-
     <div id="predictions" class="container-fluid text-center bg-grey">
-        <div class="row">
-            <div class="col-md-12">
-                <img src="https://via.placeholder.com/1366x100?text=Predictions" alt="">
-            </div>
-        </div>
+
+        <h2>Predictions</h2>
         <br>
         <div class="row">
             <div class="col-md-6">
@@ -182,7 +299,8 @@
         <br>
         <div class="row">
             <div class="col-md-12">
-                <img src="https://via.placeholder.com/1366x150?text=Predictions discussion part 1: model performance" alt="">
+                <img src="https://via.placeholder.com/1366x150?text=Predictions discussion part 1: model performance"
+                    alt="">
             </div>
         </div>
         <br>
@@ -195,7 +313,7 @@
             </div>
         </div>
         <br>
-        <div class="row">
+        <div id="conclusion" class="row">
             <div class="col-md-12">
                 <img src="https://via.placeholder.com/1366x150?text=Next steps/suggestions for future research" alt="">
             </div>
@@ -208,6 +326,44 @@
         <p>Footer Text</p>
     </footer>
 
+    <script>
+        $(document).ready(function () {
+            // Add smooth scrolling to all links in navbar + footer link
+            $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
+
+                    // Store hash
+                    var hash = this.hash;
+
+                    // Using jQuery's animate() method to add smooth page scroll
+                    // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 900, function () {
+
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                    });
+                } // End if
+            });
+
+            $(window).scroll(function () {
+                $(".slideanim").each(function () {
+                    var pos = $(this).offset().top;
+
+                    var winTop = $(window).scrollTop();
+                    if (pos < winTop + 600) {
+                        $(this).addClass("slide");
+                    }
+                });
+            });
+        })
+    </script>
+    <script src="tableau.js"></script>
+    
 </body>
 
 </html>
