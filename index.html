@@ -37,13 +37,13 @@
         .jumbotron {
             background-color: #f4511e;
             color: #fff;
-            padding: 100px 25px;
+            padding: 100px;
             margin-bottom: 30px;
             font-family: Montserrat, sans-serif;
         }
 
         .container-fluid {
-            padding: 60px 50px;
+            padding: 60px 50px 20px 20px;
         }
 
         .bg-grey {
@@ -190,6 +190,19 @@
             visibility: visible;
         }
 
+        .well {
+            min-height: 20px;
+            padding: 15px;
+            margin-bottom: 20px;
+            /* margin-right: 1px; */
+            background-color: #f5f5f5;
+            border: 1px solid #e3e3e3;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+            box-shadow: -20px 14px 20px 0px rgba(2, 1, 0, 0.22);
+        }
+
+
         @keyframes slide {
             0% {
                 opacity: 0;
@@ -238,6 +251,7 @@
 
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
+
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                     <span class="icon-bar"></span>
@@ -246,6 +260,7 @@
                 </button>
                 <a class="navbar-brand" href="#myPage">DengAi</a>
             </div>
+
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active"><a href="#myPage">Home</a></li>
@@ -254,6 +269,7 @@
                     <li><a href="#conclusion">Conclusion</a></li>
                 </ul>
             </div>
+
         </div>
     </nav>
 
@@ -264,30 +280,54 @@
 
     <div id="charts" class="container-fuid text-center">
         <br><br>
+
         <div class="row">
-            <div class="col-md-8">
-                <div id="vizContainer" style="width:1200px; height:550px;"></div>
+            <div class="col-md-6 well">
+                <div id="vizContainer" style="width:100%; height:500px;"></div>
             </div>
 
-            <div class="col-md-4 well">
-                <p>Context: About mosquito-borne disease</p>
+            <div class="col-md-6 well">
+                <h2>Context: About mosquito-borne disease <img
+                        src="https://img.icons8.com/office/80/000000/mosquito.png" width="50px" height="50px" /></h2>
+                <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat.</h4><br>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                    officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <br><br><br><br><br>
             </div>
+
         </div><br>
 
         <div class="row">
             <div class="col-md-6">
                 <img src="https://via.placeholder.com/400x250?text=Map showing dengue endemic areas" alt="">
             </div>
+
             <div class="col-md-6 well">
-                <p>Conext about Dengue</p>
+                <h2>Conext about Dengue</h2><br>
+                <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat.</h4><br>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                    officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             </div>
+
         </div>
     </div>
 
     <div id="predictions" class="container-fluid text-center bg-grey">
 
-        <h2>Predictions</h2>
-        <br>
+        <h2>Predictions</h2><br>
+
         <div class="row">
             <div class="col-md-6">
                 <img src="https://via.placeholder.com/400x250?text=SJ prediction vs actual plot" alt="">
@@ -295,15 +335,14 @@
             <div class="col-md-6">
                 <img src="https://via.placeholder.com/400x250?text=Iq prediction vs actual plot" alt="">
             </div>
-        </div>
-        <br>
+        </div><br>
+
         <div class="row">
             <div class="col-md-12">
-                <img src="https://via.placeholder.com/1366x150?text=Predictions discussion part 1: model performance"
-                    alt="">
+                <h2>Predictions discussion part 1: model performance</h2>
             </div>
-        </div>
-        <br>
+        </div><br>
+
         <div class="row">
             <div class="col-md-6">
                 <img src="https://via.placeholder.com/400x250?text=Predictions discussion part 2: features" alt="">
@@ -311,8 +350,8 @@
             <div class="col-md-6">
                 <img src="https://via.placeholder.com/400x250?text=Char that shows relative feature importance" alt="">
             </div>
-        </div>
-        <br>
+        </div><br>
+
         <div id="conclusion" class="row">
             <div class="col-md-12">
                 <img src="https://via.placeholder.com/1366x150?text=Next steps/suggestions for future research" alt="">
@@ -323,6 +362,9 @@
     <br>
 
     <footer class="container-fluid text-center">
+        <a href="#myPage" title="To Top">
+            <span class="glyphicon glyphicon-chevron-up"></span>
+        </a>
         <p>Footer Text</p>
     </footer>
 
@@ -363,7 +405,7 @@
         })
     </script>
     <script src="tableau.js"></script>
-    
+
 </body>
 
 </html>
