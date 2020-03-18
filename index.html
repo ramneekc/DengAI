@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Bootstrap Example</title>
+    <title>DengAI</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -11,240 +11,7 @@
     <script src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-    <style>
-        body {
-            font: 400 15px Lato, sans-serif;
-            line-height: 1.8;
-            color: #818181;
-        }
-
-        h2 {
-            font-size: 24px;
-            text-transform: uppercase;
-            color: #303030;
-            font-weight: 600;
-            margin-bottom: 30px;
-        }
-
-        h4 {
-            font-size: 19px;
-            line-height: 1.375em;
-            color: #303030;
-            font-weight: 400;
-            margin-bottom: 30px;
-        }
-
-        .jumbotron {
-            background-color: #f4511e;
-            color: #fff;
-            padding: 100px;
-            margin-bottom: 30px;
-            font-family: Montserrat, sans-serif;
-        }
-
-        .container-fluid {
-            padding: 60px 50px 20px 20px;
-        }
-
-        .bg-grey {
-            background-color: #f6f6f6;
-        }
-
-        .logo-small {
-            color: #f4511e;
-            font-size: 50px;
-        }
-
-        .logo {
-            color: #f4511e;
-            font-size: 200px;
-        }
-
-        .thumbnail {
-            padding: 0 0 15px 0;
-            border: none;
-            border-radius: 0;
-        }
-
-        .thumbnail img {
-            width: 100%;
-            height: 100%;
-            margin-bottom: 10px;
-        }
-
-        .carousel-control.right,
-        .carousel-control.left {
-            background-image: none;
-            color: #f4511e;
-        }
-
-        .carousel-indicators li {
-            border-color: #f4511e;
-        }
-
-        .carousel-indicators li.active {
-            background-color: #f4511e;
-        }
-
-        .item h4 {
-            font-size: 19px;
-            line-height: 1.375em;
-            font-weight: 400;
-            font-style: italic;
-            margin: 70px 0;
-        }
-
-        .item span {
-            font-style: normal;
-        }
-
-        .panel {
-            border: 1px solid #f4511e;
-            border-radius: 0 !important;
-            transition: box-shadow 0.5s;
-        }
-
-        .panel:hover {
-            box-shadow: 5px 0px 40px rgba(0, 0, 0, .2);
-        }
-
-        .panel-footer .btn:hover {
-            border: 1px solid #f4511e;
-            background-color: #fff !important;
-            color: #f4511e;
-        }
-
-        .panel-heading {
-            color: #fff !important;
-            background-color: #f4511e !important;
-            padding: 25px;
-            border-bottom: 1px solid transparent;
-            border-top-left-radius: 0px;
-            border-top-right-radius: 0px;
-            border-bottom-left-radius: 0px;
-            border-bottom-right-radius: 0px;
-        }
-
-        .panel-footer {
-            background-color: white !important;
-        }
-
-        .panel-footer h3 {
-            font-size: 32px;
-        }
-
-        .panel-footer h4 {
-            color: #aaa;
-            font-size: 14px;
-        }
-
-        .panel-footer .btn {
-            margin: 15px 0;
-            background-color: #f4511e;
-            color: #fff;
-        }
-
-        .navbar {
-            margin-bottom: 0;
-            background-color: #f4511e;
-            z-index: 9999;
-            border: 0;
-            font-size: 12px !important;
-            line-height: 1.42857143 !important;
-            letter-spacing: 4px;
-            border-radius: 0;
-            font-family: Montserrat, sans-serif;
-        }
-
-        .navbar li a,
-        .navbar .navbar-brand {
-            color: #fff !important;
-        }
-
-        .navbar-nav li a:hover,
-        .navbar-nav li.active a {
-            color: #f4511e !important;
-            background-color: #fff !important;
-        }
-
-        .navbar-default .navbar-toggle {
-            border-color: transparent;
-            color: #fff !important;
-        }
-
-        footer .glyphicon {
-            font-size: 20px;
-            margin-bottom: 20px;
-            color: #f4511e;
-        }
-
-        .slideanim {
-            visibility: hidden;
-        }
-
-        .slide {
-            animation-name: slide;
-            -webkit-animation-name: slide;
-            animation-duration: 1s;
-            -webkit-animation-duration: 1s;
-            visibility: visible;
-        }
-
-        .well {
-            min-height: 20px;
-            padding: 15px;
-            margin-bottom: 20px;
-            /* margin-right: 1px; */
-            background-color: #f5f5f5;
-            border: 1px solid #e3e3e3;
-            border-radius: 4px;
-            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
-            box-shadow: -20px 14px 20px 0px rgba(2, 1, 0, 0.22);
-        }
-
-
-        @keyframes slide {
-            0% {
-                opacity: 0;
-                transform: translateY(70%);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0%);
-            }
-        }
-
-        @-webkit-keyframes slide {
-            0% {
-                opacity: 0;
-                -webkit-transform: translateY(70%);
-            }
-
-            100% {
-                opacity: 1;
-                -webkit-transform: translateY(0%);
-            }
-        }
-
-        @media screen and (max-width: 768px) {
-            .col-sm-4 {
-                text-align: center;
-                margin: 25px 0;
-            }
-
-            .btn-lg {
-                width: 100%;
-                margin-bottom: 35px;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            .logo {
-                font-size: 150px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body id="myPage" onload="initViz();" data-spy="scroll" data-target=".navbar" data-offset="60">
@@ -258,13 +25,15 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#myPage">DengAi</a>
+                <a class="navbar-brand" href="#myPage">
+                    DengAI
+                </a>
             </div>
 
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active"><a href="#myPage">Home</a></li>
-                    <li><a href="#charts">Charts</a></li>
+                    <li><a href="#about">Project</a></li>
                     <li><a href="#predictions">Predictions</a></li>
                     <li><a href="#conclusion">Conclusion</a></li>
                 </ul>
@@ -274,51 +43,58 @@
     </nav>
 
     <div class="jumbotron text-center">
-        <h1>Title</h1>
-        <p>Short Project description</p>
+        <h3>
+            <img alt="mosquito icon" title="mosquito icon" src="https://img.icons8.com/office/80/000000/mosquito.png" id="mosquito"/>
+            <strong>Using Machine Learing to Predict the Spread of 
+            <img alt="mosquito icon" title="mosquito icon" src="https://img.icons8.com/office/80/000000/mosquito.png" id="mosquito"/>
+            <br>Mosquito-Borne Disease in Tropical Cities</strong>
+        </h3>
     </div>
 
-    <div id="charts" class="container-fuid text-center">
-        <br><br>
+    <div id="about" class="container-fuid text-center">
 
+        <div class="row" id="intro">
+            <p>This project aims to predict local epidemics of dengue fever using environmental data collected by 
+                U.S. Federal Government agencies. Using historical data for San Juan, Puerto Rico and Iquitos, Peru,
+                predictions were generated with the machine learning tools TensorFlow and Facebook Prophet. 
+                Raw data is available through <a src="https://www.drivendata.org/competitions/44/dengai-predicting-disease-spread/">DrivenData</a>.
+            </p>
+            <br>
+        </div>
+    
         <div class="row">
-            <div class="col-md-6 well">
-                <div id="vizContainer" style="width:100%; height:500px;"></div>
+
+            <div class="col-md-4 well" id="disease">
+                <h2 style="text-align: center">Mosquito-borne disease </h2>
+                <p>Mosquito-borne disease is a common scourge throughout the world, causing hundreds of million of illnesses
+                    and millions of deaths every year. While most prevalent in tropical environments, there are over 3,000 species
+                    of mosquitoes found across the globe. Mosquito-borne illnesses can be caused by bacteria, viruses, or parasites
+                    transmitted to humans when the mosquito bites. Diseases include Malaria, Dengue, West Nile, Zika, Chikungunya,
+                    and Yellow Fever. The spread of mosquito-borne disease is related to climate variables such as temperature
+                    and precipitation. Although the relationship complex, climate change may produce changes in mosquito prevalence
+                    and disease burden that will have significant public health implications worldwide.</p>
             </div>
 
-            <div class="col-md-6 well">
-                <h2>Context: About mosquito-borne disease <img
-                        src="https://img.icons8.com/office/80/000000/mosquito.png" width="50px" height="50px" /></h2>
-                <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat.</h4><br>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                    officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <br><br><br><br><br>
+            <div class="col-md-7 well" id="tableau" >
+                <div id="vizContainer"></div>
             </div>
 
         </div><br>
 
         <div class="row">
-            <div class="col-md-6">
-                <img src="https://via.placeholder.com/400x250?text=Map showing dengue endemic areas" alt="">
+            <div class="col-md-7" id="tableau-2">
+                <div id="vizContainer-2"></div>
             </div>
 
-            <div class="col-md-6 well">
-                <h2>Conext about Dengue</h2><br>
-                <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat.</h4><br>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                    officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <div class="col-md-4 well" id="dengue">
+                <h2 style="text-align: center">Dengue Fever</h2>
+                <p>Dengue fever is a mosquito-borne viral disease that occurs in tropical and sub-tropical parts of the world. 
+                    In mild cases, symptoms are similar to the flu: fever, rash, and muscle and joint pain. In severe cases, 
+                    dengue fever can cause severe bleeding, low blood pressure, and even death. 
+                    In recent years dengue fever has been spreading. Historically, the disease has been most prevalent in 
+                    Southeast Asia and the Pacific islands. These days many of the nearly half billion cases per year are 
+                    occurring in Latin America. Dengue is spread by several species of female mosquitoes of the Aedes type, 
+                    principally Aedes aegypti. </p>
             </div>
 
         </div>
@@ -326,31 +102,49 @@
 
     <div id="predictions" class="container-fluid text-center bg-grey">
 
-        <h2>Predictions</h2><br>
+        <h2>Predictions for San Jose, Puerto Rico</h2>
 
         <div class="row">
-            <div class="col-md-6">
-                <img src="https://via.placeholder.com/400x250?text=SJ prediction vs actual plot" alt="">
+            <div class="col-md-12" id="sj-prophet">
+                <img src="https://via.placeholder.com/400x250?text=SJ Prophet prediction vs actual plot" alt="">
             </div>
-            <div class="col-md-6">
-                <img src="https://via.placeholder.com/400x250?text=Iq prediction vs actual plot" alt="">
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-12" id="sj-tensorflow">
+                <img src="https://via.placeholder.com/400x250?text=SJ TF prediction vs actual plot" alt="">
             </div>
         </div><br>
-
-        <div class="row">
+        
+        <div id="sj-discuss" class="row">
             <div class="col-md-12">
-                <h2>Predictions discussion part 1: model performance</h2>
+                <img src="https://via.placeholder.com/1366x150?text=San Juan results discussion" alt="">
+            </div>
+        </div>
+
+
+        <h2>Predictions for Iquitos, Peru</h2>
+
+        <div class="row">
+            <div class="col-md-12" id="iq-prophet">
+                <img src="https://via.placeholder.com/400x250?text=Iq Prophet prediction vs actual plot" alt="">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-12" id="iq-tensorflow">
+                <img src="https://via.placeholder.com/400x250?text=Iq TF prediction vs actual plot" alt="">
             </div>
         </div><br>
 
-        <div class="row">
-            <div class="col-md-6">
-                <img src="https://via.placeholder.com/400x250?text=Predictions discussion part 2: features" alt="">
+        <div id="iq-discuss" class="row">
+            <div class="col-md-12">
+                <img src="https://via.placeholder.com/1366x150?text=Iquitos results discussion" alt="">
             </div>
-            <div class="col-md-6">
-                <img src="https://via.placeholder.com/400x250?text=Char that shows relative feature importance" alt="">
-            </div>
-        </div><br>
+        </div>
+
+<br>
+
 
         <div id="conclusion" class="row">
             <div class="col-md-12">
@@ -359,13 +153,14 @@
         </div>
     </div>
 
-    <br>
+    <!-- <br> -->
 
     <footer class="container-fluid text-center">
         <a href="#myPage" title="To Top">
             <span class="glyphicon glyphicon-chevron-up"></span>
         </a>
-        <p>Footer Text</p>
+        <p>Ramneek Singh Chatha / Scott Clark / Graham Penrose / Bryan Souza </p>
+        <p>Data Analytics 2020</p>
     </footer>
 
     <script>
