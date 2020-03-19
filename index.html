@@ -6,12 +6,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.3/d3.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="highcharts.css">
+    <!-- Highcharts -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 </head>
 
 <body id="myPage" onload="initViz();" data-spy="scroll" data-target=".navbar" data-offset="60">
@@ -44,38 +53,47 @@
 
     <div class="jumbotron text-center">
         <h3>
-            <img alt="mosquito icon" title="mosquito icon" src="https://img.icons8.com/office/80/000000/mosquito.png" id="mosquito"/>
-            <strong>Using Machine Learing to Predict the Spread of 
-            <img alt="mosquito icon" title="mosquito icon" src="https://img.icons8.com/office/80/000000/mosquito.png" id="mosquito"/>
-            <br>Mosquito-Borne Disease in Tropical Cities</strong>
+            <img alt="mosquito icon" title="mosquito icon" src="https://img.icons8.com/office/80/000000/mosquito.png"
+                id="mosquito" />
+            <strong>Using Machine Learing to Predict the Spread of
+                <img alt="mosquito icon" title="mosquito icon"
+                    src="https://img.icons8.com/office/80/000000/mosquito.png" id="mosquito" />
+                <br>Mosquito-Borne Disease in Tropical Cities</strong>
         </h3>
     </div>
 
     <div id="about" class="container-fuid text-center">
 
         <div class="row" id="intro">
-            <p>This project aims to predict local epidemics of dengue fever using environmental data collected by 
+            <p>This project aims to predict local epidemics of dengue fever using environmental data collected by
                 U.S. Federal Government agencies. Using historical data for San Juan, Puerto Rico and Iquitos, Peru,
-                predictions were generated with the machine learning tools TensorFlow and Facebook Prophet. 
-                Raw data is available through <a src="https://www.drivendata.org/competitions/44/dengai-predicting-disease-spread/">DrivenData</a>.
+                predictions were generated with the machine learning tools TensorFlow and Facebook Prophet.
+                Raw data is available through <a
+                    src="https://www.drivendata.org/competitions/44/dengai-predicting-disease-spread/">DrivenData</a>.
             </p>
             <br>
         </div>
-    
+
         <div class="row">
 
             <div class="col-md-4 well" id="disease">
                 <h2 style="text-align: center">Mosquito-borne disease </h2>
-                <p>Mosquito-borne disease is a common scourge throughout the world, causing hundreds of million of illnesses
-                    and millions of deaths every year. While most prevalent in tropical environments, there are over 3,000 species
-                    of mosquitoes found across the globe. Mosquito-borne illnesses can be caused by bacteria, viruses, or parasites
-                    transmitted to humans when the mosquito bites. Diseases include Malaria, Dengue, West Nile, Zika, Chikungunya,
-                    and Yellow Fever. The spread of mosquito-borne disease is related to climate variables such as temperature
-                    and precipitation. Although the relationship complex, climate change may produce changes in mosquito prevalence
+                <p>Mosquito-borne disease is a common scourge throughout the world, causing hundreds of million of
+                    illnesses
+                    and millions of deaths every year. While most prevalent in tropical environments, there are over
+                    3,000 species
+                    of mosquitoes found across the globe. Mosquito-borne illnesses can be caused by bacteria, viruses,
+                    or parasites
+                    transmitted to humans when the mosquito bites. Diseases include Malaria, Dengue, West Nile, Zika,
+                    Chikungunya,
+                    and Yellow Fever. The spread of mosquito-borne disease is related to climate variables such as
+                    temperature
+                    and precipitation. Although the relationship complex, climate change may produce changes in mosquito
+                    prevalence
                     and disease burden that will have significant public health implications worldwide.</p>
             </div>
 
-            <div class="col-md-7 well" id="tableau" >
+            <div class="col-md-7 well" id="tableau">
                 <div id="vizContainer"></div>
             </div>
 
@@ -88,12 +106,17 @@
 
             <div class="col-md-4 well" id="dengue">
                 <h2 style="text-align: center">Dengue Fever</h2>
-                <p>Dengue fever is a mosquito-borne viral disease that occurs in tropical and sub-tropical parts of the world. 
-                    In mild cases, symptoms are similar to the flu: fever, rash, and muscle and joint pain. In severe cases, 
-                    dengue fever can cause severe bleeding, low blood pressure, and even death. 
-                    In recent years dengue fever has been spreading. Historically, the disease has been most prevalent in 
-                    Southeast Asia and the Pacific islands. These days many of the nearly half billion cases per year are 
-                    occurring in Latin America. Dengue is spread by several species of female mosquitoes of the Aedes type, 
+                <p>Dengue fever is a mosquito-borne viral disease that occurs in tropical and sub-tropical parts of the
+                    world.
+                    In mild cases, symptoms are similar to the flu: fever, rash, and muscle and joint pain. In severe
+                    cases,
+                    dengue fever can cause severe bleeding, low blood pressure, and even death.
+                    In recent years dengue fever has been spreading. Historically, the disease has been most prevalent
+                    in
+                    Southeast Asia and the Pacific islands. These days many of the nearly half billion cases per year
+                    are
+                    occurring in Latin America. Dengue is spread by several species of female mosquitoes of the Aedes
+                    type,
                     principally Aedes aegypti. </p>
             </div>
 
@@ -102,11 +125,20 @@
 
     <div id="predictions" class="container-fluid text-center bg-grey">
 
-        <h2>Predictions for San Jose, Puerto Rico</h2>
+        <h2>Predictions for San Juan, Puerto Rico</h2>
 
         <div class="row">
             <div class="col-md-12" id="sj-prophet">
-                <img src="https://via.placeholder.com/400x250?text=SJ Prophet prediction vs actual plot" alt="">
+                <!-- <img src="https://via.placeholder.com/400x250?text=SJ Prophet prediction vs actual plot" alt=""> -->
+                <figure class="highcharts-figure">
+                    <div id="container"></div>
+                    <p class="highcharts-description">
+                        This demo visualizes a data set with irregular time intervals.
+                        Highcharts comes with sophisticated functionality for dealing
+                        with time data, including support for different time zones and
+                        irregular intervals.
+                    </p>
+                </figure>
             </div>
         </div>
         <br>
@@ -115,7 +147,7 @@
                 <img src="https://via.placeholder.com/400x250?text=SJ TF prediction vs actual plot" alt="">
             </div>
         </div><br>
-        
+
         <div id="sj-discuss" class="row">
             <div class="col-md-12">
                 <img src="https://via.placeholder.com/1366x150?text=San Juan results discussion" alt="">
@@ -143,7 +175,7 @@
             </div>
         </div>
 
-<br>
+        <br>
 
 
         <div id="conclusion" class="row">
@@ -200,6 +232,7 @@
         })
     </script>
     <script src="tableau.js"></script>
+    <script type="text/javascript" src="logic.js"></script>
 
 </body>
 
