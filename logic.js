@@ -1,24 +1,20 @@
 d3.csv("/Prophet/sj_predictions.csv").then(data => {
-    console.log(data);
+    // console.log(data);
+
     train_list = [];
-    predicted_list= [];
-    data.forEach(function(d){
-        // console.log(typeof parseFloat(d.yhat));
-        // console.log(typeof parseInt(d.y));
-        // console.log(typeof (d.ds.toDateString()));
-        list = [d.ds, parseInt(d.y)];
-        list2 = [d.ds, parseFloat(d.yhat)]
+    predicted_list = [];
+
+    data.forEach(function (d) {
+        list = [Date.parse(d.ds), parseInt(d.y)];
+        list2 = [Date.parse(d.ds), parseFloat(d.yhat)]
         train_list.push(list);
         predicted_list.push(list2);
     })
-    
+
     createCharts(train_list, predicted_list);
-    
-    console.log(train_list);
-    console.log(predicted_list);
 })
 
-function createCharts(train, predict){
+function createCharts(train, predict) {
 
     Highcharts.chart('container', {
         chart: {
@@ -28,13 +24,12 @@ function createCharts(train, predict){
             text: 'SJ Added regressor'
         },
         subtitle: {
-            text: 'Irregular time data in Highcharts JS'
+            text: ''
         },
         xAxis: {
             type: 'datetime',
-            dateTimeLabelFormats: { // don't display the dummy year
-                month: '%e. %b',
-                year: '%b'
+            dateTimeLabelFormats: {
+                year: '%Y'
             },
             title: {
                 text: 'Date'
@@ -48,21 +43,18 @@ function createCharts(train, predict){
         },
         tooltip: {
             headerFormat: '<b>{series.name}</b><br>',
-            pointFormat: '{point.x:%e. %b}: {point.y:.2f} m'
+            pointFormat: 'Year: {point.x:%m-%d-%Y} <br>Cases: {point.y:.2f}'
         },
-    
+
         plotOptions: {
             series: {
                 marker: {
-                    enabled: true
+                    enabled: false
                 }
             }
         },
         colors: ['#FFAA1D', '#F51B00', '#06C', '#036', '#000'],
-    
-        // Define the data points. All series have a dummy year
-        // of 1970/71 in order to be compared on the same x axis. Note
-        // that in JavaScript, months start at 0 for January, 1 for February etc.
+
         series: [{
             name: "Train",
             data: train
@@ -70,7 +62,7 @@ function createCharts(train, predict){
             name: "Predict",
             data: predict
         }],
-    
+
         responsive: {
             rules: [{
                 condition: {
@@ -80,7 +72,7 @@ function createCharts(train, predict){
                     plotOptions: {
                         series: {
                             marker: {
-                                radius: 2.5
+                                radius: 1.5
                             }
                         }
                     }
