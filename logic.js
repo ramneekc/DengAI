@@ -30,27 +30,30 @@ function createCharts(train, predict) {
             type: 'datetime',
             dateTimeLabelFormats: {
                 year: '%Y'
-            },
-            title: {
-                text: 'Date'
             }
         },
         yAxis: {
             title: {
-                text: 'Number of cases'
+                text: 'Number <br> of cases',
+                rotation: 0,
+                y: 0,
+                x: -5
             },
             min: 0
         },
         tooltip: {
-            headerFormat: '<b>{series.name}</b><br>',
-            pointFormat: 'Year: {point.x:%m-%d-%Y} <br>Cases: {point.y:.2f}'
+            pointFormat: 'Cases: {point.y:.2f}'
         },
+        
 
         plotOptions: {
             series: {
                 marker: {
                     enabled: false
-                }
+                },
+                label: {
+                    enabled: false,
+                },
             }
         },
         colors: ['#FFAA1D', '#F51B00', '#06C', '#036', '#000'],
