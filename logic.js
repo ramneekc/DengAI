@@ -1,20 +1,35 @@
-d3.csv("/Prophet/sj_predictions.csv").then(data => {
+d3.csv("/Prophet/sj_train.csv").then(train => {
     // console.log(data);
+    d3.csv("/Prophet/sj_test.csv").then(test => {
 
-    train_list = [];
-    predicted_list = [];
+        d3.csv("/Prophet/sj_predictions.csv").then(predictions => {
+            train_list = [];
+            test_list = [];
+            predicted_list = [];
 
-    data.forEach(function (d) {
-        list = [Date.parse(d.ds), parseInt(d.y)];
-        list2 = [Date.parse(d.ds), parseFloat(d.yhat)]
-        train_list.push(list);
-        predicted_list.push(list2);
+            train.forEach(function (d) {
+                list = [Date.parse(d.ds), parseInt(d.y)];
+                train_list.push(list);
+            })
+
+            test.forEach(function (d) {
+                list = [Date.parse(d.ds), parseInt(d.y)];
+                test_list.push(list);
+            })
+
+            predictions.forEach(function(d) {
+                list = [Date.parse(d.ds), parseFloat(d.yhat)];
+                predicted_list.push(list);
+            })
+
+            createCharts(train_list, test_list, predicted_list);
+        })
+
     })
 
-    createCharts(train_list, predicted_list);
 })
 
-function createCharts(train, predict) {
+function createCharts(train, test, predict) {
 
     Highcharts.chart('container', {
         chart: {
@@ -37,28 +52,35 @@ function createCharts(train, predict) {
         },
         yAxis: {
             title: {
-                text: 'Number of cases'
+                text: 'Number <br> of cases',
+                rotation: 0
             },
             min: 0
         },
         tooltip: {
-            headerFormat: '<b>{series.name}</b><br>',
-            pointFormat: 'Year: {point.x:%m-%d-%Y} <br>Cases: {point.y:.2f}'
+            pointFormat: 'Cases: {point.y:.2f}'
         },
 
         plotOptions: {
             series: {
                 marker: {
                     enabled: false
+                },
+                label:{
+                    enabled: false
                 }
             }
         },
         colors: ['#FFAA1D', '#F51B00', '#06C', '#036', '#000'],
-
+        // #2f7ed8, #0d233a, #8bbc21, #910000, #1aadce, #492970, #f28f43, #77a1e5, #c42525, #a6c96a, #ffffff
         series: [{
             name: "Train",
             data: train
         }, {
+            name: "Test",
+            data: test
+        },
+        {
             name: "Predict",
             data: predict
         }],
