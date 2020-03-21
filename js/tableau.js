@@ -27,4 +27,3 @@ function initViz() {
         { "behavior": "EXACTLY", "maxSize": { "height": 500, "width": 800 } })
         .then(viz2.setFrameSize(parseInt(200, 10), parseInt(200, 10)));
 }    
-}
