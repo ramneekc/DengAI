@@ -3,6 +3,9 @@ body {
     line-height: 1.8;
     color: #818181;
 }
+p {
+    text-align: justify;
+}
 
 h2 {
     font-size: 24px;
@@ -20,6 +23,7 @@ h4 {
     margin-bottom: 30px;
 }
 
+
 .jumbotron {
     background-color: #f4511e;
     color: #fff;
@@ -32,7 +36,7 @@ h4 {
 }
 
 .container-fluid {
-    padding: 60px 50px 20px 20px;
+    padding: 60px 20px 20px 20px;
 }
 
 .bg-grey {
@@ -188,7 +192,7 @@ footer .glyphicon {
     border: 1px solid #e3e3e3;
     border-radius: 4px;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
-    box-shadow: -20px 14px 20px 0px rgba(2, 1, 0, 0.22);
+    box-shadow: 0px 20px 20px 0px rgba(2, 1, 0, 0.22);
 }
 
 
@@ -244,19 +248,29 @@ footer .glyphicon {
     margin-right: 5rem;
 }
 
+.customDen {
+   margin :  0px 8px 0px 8px
+}
 #disease {
     /* margin-left: 4rem; */
     /* margin-right: 1rem; */
     padding: 20px;
     text-align: left;
-    height:500px;
+    height:531px;
+    width: 30%;
+    float: left;
+    clear: both;
 }
 
 #dengue {
     /* margin-left: 1rem; */
     /* margin-right: 4rem; */
     text-align: left;
-    height:500px;   
+    padding: 20px;
+    height:531px;
+    width: 30%;
+    float: right;
+      
 }
 
 /* #vizContainer {
@@ -269,10 +283,15 @@ footer .glyphicon {
     height:500px;
 } */
 
-/* #tableau {
-    margin-left: 1.5rem;
+#tableau {
+    /* margin-left: 1.5rem; */
+    width: 69%;
+    float: right;
 }
 
 #tableau-2 {
-    margin-right: 1.5rem;
-} */
+    /* margin-right: 1.5rem; */
+    width: 69%;
+    float: left;
+    clear: both; 
+}

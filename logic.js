@@ -102,6 +102,7 @@ function createCharts_sj(train, test, predict) {
                 }
             }
         },
+        width: '100%',
         colors: ['#FFAA1D', '#F51B00', '#06C', '#036', '#000'],
         // #2f7ed8, #0d233a, #8bbc21, #910000, #1aadce, #492970, #f28f43, #77a1e5, #c42525, #a6c96a, #ffffff
         series: [{
