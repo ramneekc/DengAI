@@ -6,21 +6,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.3/d3.min.js"></script>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" type="text/css" href="highcharts.css">
-    <!-- Highcharts -->
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/series-label.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/highcharts.css">
 </head>
 
 <body id="myPage" onload="initViz();" data-spy="scroll" data-target=".navbar" data-offset="60">
@@ -91,8 +81,8 @@
                     and precipitation. Although the relationship complex, climate change may produce changes in mosquito
                     prevalence
                     and disease burden that will have significant public health implications worldwide.
-                    </p>
-                    
+                </p>
+
             </div>
 
             <div class="col-md-8 well" id="tableau">
@@ -141,8 +131,8 @@
                     and precipitation. Although the relationship complex, climate change may produce changes in mosquito
                     prevalence
                     and disease burden that will have significant public health implications worldwide.
-                    </p>
-                    
+                </p>
+
             </div>
 
             <div class="col-md-8 well" id="tableau">
@@ -160,18 +150,12 @@
         <div class="row">
             <div class="col-md-12" id="sj-prophet">
                 <figure class="highcharts-figure">
-                    <div id="container_sj_fbpr"></div>
+                    <div id="container_sj"></div>
                     <p class="highcharts-description"></p>
                 </figure>
             </div>
         </div>
         <br>
-        <div class="row">
-            <div class="col-md-12" id="sj-tensorflow">
-                <img src="https://via.placeholder.com/400x250?text=SJ TF prediction vs actual plot" alt="">
-            </div>
-        </div><br>
-
         <div id="sj-discuss" class="row">
             <div class="col-md-12">
                 <img src="https://via.placeholder.com/1366x150?text=San Juan results discussion" alt="">
@@ -179,23 +163,18 @@
         </div>
 
 
+
         <h2>Predictions for Iquitos, Peru</h2>
 
         <div class="row">
-            <div class="col-md-12" id="iq-prophet">
+            <div class="col-12" id="iq-prophet">
                 <figure class="highcharts-figure">
-                    <div id="container_iq_fbpr"></div>
+                    <div id="container_iq"></div>
                     <p class="highcharts-description"></p>
                 </figure>
             </div>
         </div>
         <br>
-        <div class="row">
-            <div class="col-md-12" id="iq-tensorflow">
-                <img src="https://via.placeholder.com/400x250?text=Iq TF prediction vs actual plot" alt="">
-            </div>
-        </div><br>
-
         <div id="iq-discuss" class="row">
             <div class="col-md-12">
                 <img src="https://via.placeholder.com/1366x150?text=Iquitos results discussion" alt="">
@@ -222,6 +201,20 @@
         <p>Data Analytics 2020</p>
     </footer>
 
+    <!-- Highcharts -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <!--  JavaScript Imports     -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.3/d3.min.js"></script>
+    <script src="https://d3js.org/d3-fetch.v1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+    <script src="js/tableau.js"></script>
+    <script type="text/javascript" src="js/logic.js"></script>
     <script>
         $(document).ready(function () {
             // Add smooth scrolling to all links in navbar + footer link
@@ -258,9 +251,6 @@
             });
         })
     </script>
-    <script src="tableau.js"></script>
-    <script type="text/javascript" src="logic.js"></script>
-
 </body>
 
 </html>

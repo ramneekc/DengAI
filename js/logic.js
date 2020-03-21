@@ -84,7 +84,7 @@ function createCharts_sj(train, test, prophetPredict, tensorflowPredict) {
     Highcharts.chart('container_sj', {
         chart: {
             type: 'spline',
-            zoomType: 'xy'
+            zoomType: 'x'
         },
         title: {
             text: 'San Juan Dengue Case Predictions'
@@ -109,8 +109,7 @@ function createCharts_sj(train, test, prophetPredict, tensorflowPredict) {
                 text: 'Number <br> of cases',
                 rotation: 0
             },
-            min: 0,
-            zoomEnabled: false
+            min: 0
         },
         tooltip: {
             pointFormat: 'Cases: {point.y:.2f}'
@@ -148,15 +147,6 @@ function createCharts_sj(train, test, prophetPredict, tensorflowPredict) {
             rules: [{
                 condition: {
                     maxWidth: 1200
-                },
-                chartOptions: {
-                    plotOptions: {
-                        series: {
-                            marker: {
-                                radius: 1.5
-                            }
-                        }
-                    }
                 }
             }]
         }
@@ -168,7 +158,7 @@ function createCharts_iq(train, test, prophetPredict, tensorflowPredict) {
     Highcharts.chart('container_iq', {
         chart: {
             type: 'spline',
-            zoomType: 'xy'
+            zoomType: 'x'
         },
         title: {
             text: 'Iquitos Dengue Case Predictions'
@@ -193,8 +183,7 @@ function createCharts_iq(train, test, prophetPredict, tensorflowPredict) {
                 text: 'Number <br> of cases',
                 rotation: 0
             },
-            min: 0,
-            zoomEnabled: false
+            min: 0
         },
         tooltip: {
             pointFormat: 'Cases: {point.y:.2f}'
@@ -232,15 +221,6 @@ function createCharts_iq(train, test, prophetPredict, tensorflowPredict) {
             rules: [{
                 condition: {
                     maxWidth: 1200
-                },
-                chartOptions: {
-                    plotOptions: {
-                        series: {
-                            marker: {
-                                radius: 1.5
-                            }
-                        }
-                    }
                 }
             }]
         }
