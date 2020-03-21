@@ -2,27 +2,37 @@ d3.csv("/Prophet/sj_train.csv").then(train => {
     // console.log(data);
     d3.csv("/Prophet/sj_test.csv").then(test => {
 
-        d3.csv("/Prophet/sj_predictions.csv").then(predictions => {
-            train_list = [];
-            test_list = [];
-            predicted_list = [];
+        d3.csv("/Prophet/sj_predictions.csv").then(prophetPredictions => {
+            
+            d3.csv("/TensorFlow/sj_predictions.csv").then(tensorflowPredictions => {
+                    train_list = [];
+                    test_list = [];
+                    prophetPredicted_list = [];
+                    tensorflowPredicted_list = [];
 
-            train.forEach(function (d) {
-                list = [Date.parse(d.ds), parseInt(d.y)];
-                train_list.push(list);
+                    train.forEach(function (d) {
+                        list = [Date.parse(d.ds), parseInt(d.y)];
+                        train_list.push(list);
+                    })
+
+                    test.forEach(function (d) {
+                        list = [Date.parse(d.ds), parseInt(d.y)];
+                        test_list.push(list);
+                    })
+
+                    prophetPredictions.forEach(function(d) {
+                        list = [Date.parse(d.ds), parseFloat(d.yhat)];
+                        prophetPredicted_list.push(list);
+                    })
+                    
+                    tensorflowPredictions.forEach(function(d) {
+                        list = [Date.parse(d.week_start_date), parseFloat(d.TensorFlow_Predictions)];
+                        tensorflowPredicted_list.push(list);
+                    })
+
+                    createCharts_sj(train_list, test_list, prophetPredicted_list, tensorflowPredicted_list);
             })
-
-            test.forEach(function (d) {
-                list = [Date.parse(d.ds), parseInt(d.y)];
-                test_list.push(list);
-            })
-
-            predictions.forEach(function(d) {
-                list = [Date.parse(d.ds), parseFloat(d.yhat)];
-                predicted_list.push(list);
-            })
-
-            createCharts_sj(train_list, test_list, predicted_list);
+        
         })
 
     })
@@ -33,44 +43,57 @@ d3.csv("/Prophet/iq_train.csv").then(train => {
     // console.log(data);
     d3.csv("/Prophet/iq_test.csv").then(test => {
 
-        d3.csv("/Prophet/iq_predictions.csv").then(predictions => {
-            train_list = [];
-            test_list = [];
-            predicted_list = [];
+        d3.csv("/Prophet/iq_predictions.csv").then(prophetPredictions => {
+            
+            d3.csv("/TensorFlow/iq_predictions.csv").then(tensorflowPredictions => {
+                    train_list = [];
+                    test_list = [];
+                    prophetPredicted_list = [];
+                    tensorflowPredicted_list = [];
 
-            train.forEach(function (d) {
-                list = [Date.parse(d.ds), parseInt(d.y)];
-                train_list.push(list);
+                    train.forEach(function (d) {
+                        list = [Date.parse(d.ds), parseInt(d.y)];
+                        train_list.push(list);
+                    })
+
+                    test.forEach(function (d) {
+                        list = [Date.parse(d.ds), parseInt(d.y)];
+                        test_list.push(list);
+                    })
+
+                    prophetPredictions.forEach(function(d) {
+                        list = [Date.parse(d.ds), parseFloat(d.yhat)];
+                        prophetPredicted_list.push(list);
+                    })
+                    
+                    tensorflowPredictions.forEach(function(d) {
+                        list = [Date.parse(d.week_start_date), parseFloat(d.TensorFlow_Predictions)];
+                        tensorflowPredicted_list.push(list);
+                    })
+
+                    createCharts_iq(train_list, test_list, prophetPredicted_list, tensorflowPredicted_list);
             })
-
-            test.forEach(function (d) {
-                list = [Date.parse(d.ds), parseInt(d.y)];
-                test_list.push(list);
-            })
-
-            predictions.forEach(function(d) {
-                list = [Date.parse(d.ds), parseFloat(d.yhat)];
-                predicted_list.push(list);
-            })
-
-            createCharts_iq(train_list, test_list, predicted_list);
+        
         })
 
     })
 
 })
+function createCharts_sj(train, test, prophetPredict, tensorflowPredict) {
 
-function createCharts_sj(train, test, predict) {
-
-    Highcharts.chart('container_sj_fbpr', {
+    Highcharts.chart('container_sj', {
         chart: {
-            type: 'spline'
+            type: 'spline',
+            zoomType: 'xy'
         },
         title: {
-            text: 'SJ Added regressor'
+            text: 'San Juan Dengue Case Predictions'
         },
         subtitle: {
-            text: ''
+            text: 'Facebook Prophet vs. TensorFlow LSTM'
+        },
+        credits: {
+            enabled: false
         },
         xAxis: {
             type: 'datetime',
@@ -86,7 +109,8 @@ function createCharts_sj(train, test, predict) {
                 text: 'Number <br> of cases',
                 rotation: 0
             },
-            min: 0
+            min: 0,
+            zoomEnabled: false
         },
         tooltip: {
             pointFormat: 'Cases: {point.y:.2f}'
@@ -102,8 +126,7 @@ function createCharts_sj(train, test, predict) {
                 }
             }
         },
-        width: '100%',
-        colors: ['#FFAA1D', '#F51B00', '#06C', '#036', '#000'],
+        colors: ['#027a00', '#F51B00', '#06C', '#ff701d', '#000'],
         // #2f7ed8, #0d233a, #8bbc21, #910000, #1aadce, #492970, #f28f43, #77a1e5, #c42525, #a6c96a, #ffffff
         series: [{
             name: "Train",
@@ -113,14 +136,18 @@ function createCharts_sj(train, test, predict) {
             data: test
         },
         {
-            name: "Predict",
-            data: predict
+            name: "Prophet Predictions",
+            data: prophetPredict
+        },
+        {
+            name: "TensorFlow Predictions",
+            data: tensorflowPredict
         }],
 
         responsive: {
             rules: [{
                 condition: {
-                    maxWidth: 500
+                    maxWidth: 1200
                 },
                 chartOptions: {
                     plotOptions: {
@@ -136,17 +163,21 @@ function createCharts_sj(train, test, predict) {
     })
 }
 
-function createCharts_iq(train, test, predict) {
+function createCharts_iq(train, test, prophetPredict, tensorflowPredict) {
 
-    Highcharts.chart('container_iq_fbpr', {
+    Highcharts.chart('container_iq', {
         chart: {
-            type: 'spline'
+            type: 'spline',
+            zoomType: 'xy'
         },
         title: {
-            text: 'IQ Added regressor'
+            text: 'Iquitos Dengue Case Predictions'
         },
         subtitle: {
-            text: ''
+            text: 'Facebook Prophet vs. TensorFlow LSTM'
+        },
+        credits: {
+            enabled: false
         },
         xAxis: {
             type: 'datetime',
@@ -162,7 +193,8 @@ function createCharts_iq(train, test, predict) {
                 text: 'Number <br> of cases',
                 rotation: 0
             },
-            min: 0
+            min: 0,
+            zoomEnabled: false
         },
         tooltip: {
             pointFormat: 'Cases: {point.y:.2f}'
@@ -178,7 +210,7 @@ function createCharts_iq(train, test, predict) {
                 }
             }
         },
-        colors: ['#FFAA1D', '#F51B00', '#06C', '#036', '#000'],
+        colors: ['#027a00', '#F51B00', '#06C', '#ff701d', '#000'],
         // #2f7ed8, #0d233a, #8bbc21, #910000, #1aadce, #492970, #f28f43, #77a1e5, #c42525, #a6c96a, #ffffff
         series: [{
             name: "Train",
@@ -188,14 +220,18 @@ function createCharts_iq(train, test, predict) {
             data: test
         },
         {
-            name: "Predict",
-            data: predict
+            name: "Prophet Predictions",
+            data: prophetPredict
+        },
+        {
+            name: "TensorFlow Predictions",
+            data: tensorflowPredict
         }],
 
         responsive: {
             rules: [{
                 condition: {
-                    maxWidth: 500
+                    maxWidth: 1200
                 },
                 chartOptions: {
                     plotOptions: {
