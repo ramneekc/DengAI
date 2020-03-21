@@ -245,20 +245,21 @@ footer .glyphicon {
 }
 
 #disease {
-    margin-left: 4rem;
-    margin-right: 1rem;
+    /* margin-left: 4rem; */
+    /* margin-right: 1rem; */
+    padding: 20px;
     text-align: left;
     height:500px;
 }
 
 #dengue {
-    margin-left: 1rem;
-    margin-right: 4rem;
+    /* margin-left: 1rem; */
+    /* margin-right: 4rem; */
     text-align: left;
     height:500px;   
 }
 
-#vizContainer {
+/* #vizContainer {
     width:100%; 
     height:500px;
 }
@@ -266,12 +267,12 @@ footer .glyphicon {
 #vizContainer-2 {
     width:100%; 
     height:500px;
-}
+} */
 
-#tableau {
+/* #tableau {
     margin-left: 1.5rem;
 }
 
 #tableau-2 {
     margin-right: 1.5rem;
-}
+} */
