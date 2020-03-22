@@ -239,10 +239,10 @@ footer .glyphicon {
     }
 }
 
-#mosquito {
+/* #mosquito {
     padding: 1rem;
     height: 50px;
-}
+} */
 
 #intro {
     margin-left: 5rem;
@@ -250,30 +250,28 @@ footer .glyphicon {
     font-size: larger;
 }
 
-.customDen {
-   margin :  0px 8px 0px 8px
-}
-#disease {
-    /* margin-left: 4rem; */
-    /* margin-right: 1rem; */
-    padding: 20px;
+/* .customDen {
+   margin  :  0px 8px 0px 8px
+} */
+.disease {
+    padding-left: 25px;
+    padding-right: 25px;
+    /* padding: 20px;
     text-align: left;
     height:531px;
     width: 30%;
     float: left;
-    clear: both;
+    clear: both; */
 }
 
-#dengue {
-    /* margin-left: 1rem; */
-    /* margin-right: 4rem; */
+/* #dengue {
     text-align: left;
     padding: 20px;
     height:531px;
     width: 30%;
     float: right;
       
-}
+} */
 
 /* #vizContainer {
     width:100%; 
@@ -285,18 +283,19 @@ footer .glyphicon {
     height:500px;
 } */
 
-#tableau {
-    /* margin-left: 1.5rem; */
-    width: 69%;
-    float: right;
+.tableau {
+    padding-right: 25px;
+    /* margin-left: 10px;
+    margin-right: 10px; */
+    /* width: 66%;
+    float: right; */
 }
 
-#tableau-2 {
-    /* margin-right: 1.5rem; */
+/* #tableau-2 {
     width: 69%;
     float: left;
     clear: both; 
-}
+} */
 
 #about {
     padding-top: 10px;
