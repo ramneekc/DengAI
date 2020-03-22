@@ -1,14 +1,14 @@
 function initViz() {
     var containerDiv = document.getElementById("vizContainer"),
-        url = "https://public.tableau.com/views/DengAi_Analysis/Sheet2?:display_count=y&:origin=viz_share_link";
+        url = "https://public.tableau.com/views/DengAi_Analysis_15848201516560/Mosquitospread?:display_count=y&publish=yes&:origin=viz_share_link";
     var viz = new tableau.Viz(containerDiv, url);
 
     var containerDiv2 = document.getElementById("vizContainer-2"),
-        url2 = "https://public.tableau.com/views/DengAi_Analysis/Sheet14?:display_count=y&:origin=viz_share_link";
+        url2 = "https://public.tableau.com/views/DengAi_Analysis_15848203806700/SJIQcasesbar?:display_count=y&publish=yes&:origin=viz_share_link";
     var viz2 = new tableau.Viz(containerDiv2, url2);
 
     var containerDiv3 = document.getElementById("vizContainer-3"),
-        url3 = "https://public.tableau.com/views/DengAi_Analysis/Sheet14?:display_count=y&:origin=viz_share_link";
+        url3 = "https://public.tableau.com/views/DengAi_Analysis_15848197625280/SJIQweekly?:display_count=y&publish=yes&:origin=viz_share_link";
     var viz3 = new tableau.Viz(containerDiv3, url3);
 
     var sheet = viz.getWorkbook().getActiveSheet();

@@ -33,6 +33,7 @@ h4 {
     padding-bottom: 30px;
     margin-bottom: 30px;
     font-family: Montserrat, sans-serif;
+    font-size: 30px;
 }
 
 .container-fluid {
@@ -246,6 +247,7 @@ footer .glyphicon {
 #intro {
     margin-left: 5rem;
     margin-right: 5rem;
+    font-size: larger;
 }
 
 .customDen {
@@ -294,4 +296,23 @@ footer .glyphicon {
     width: 69%;
     float: left;
     clear: both; 
+}
+
+#about {
+    padding-top: 10px;
+}
+
+#top-bar {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.jumbo-text {
+    font-size: 30px;
+}
+
+.footer-text {
+    text-align: center;
 }
