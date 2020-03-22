@@ -18,7 +18,7 @@
 <body id="myPage" onload="initViz();" data-spy="scroll" data-target=".navbar" data-offset="60">
 
     <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
+        <div class="container" id="top-bar">
 
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -32,7 +32,7 @@
             </div>
 
             <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav">
                     <li class="active"><a href="#myPage">Home</a></li>
                     <li><a href="#about">Project</a></li>
                     <li><a href="#predictions">Predictions</a></li>
@@ -44,13 +44,13 @@
     </nav>
 
     <div class="jumbotron text-center">
-        <h3>
-            <img alt="mosquito icon" title="mosquito icon" src="https://img.icons8.com/office/80/000000/mosquito.png"
-                id="mosquito" />
+        <h3 class = "jumbo-text">
+            <!-- <img alt="mosquito icon" title="mosquito icon" src="https://img.icons8.com/office/80/000000/mosquito.png"
+                id="mosquito" /> -->
             <strong>Using Machine Learing to Predict the Spread of
-                <img alt="mosquito icon" title="mosquito icon"
-                    src="https://img.icons8.com/office/80/000000/mosquito.png" id="mosquito" />
-                <br>Mosquito-Borne Disease in Tropical Cities</strong>
+                <!-- <img alt="mosquito icon" title="mosquito icon"
+                    src="https://img.icons8.com/office/80/000000/mosquito.png" id="mosquito" /> -->
+                <br><br>Mosquito-Borne Disease in Tropical Cities</strong>
         </h3>
     </div>
 
@@ -60,8 +60,8 @@
             <p>This project aims to predict local epidemics of dengue fever using environmental data collected by
                 U.S. Federal Government agencies. Using historical data for San Juan, Puerto Rico and Iquitos, Peru,
                 predictions were generated with the machine learning tools TensorFlow and Facebook Prophet.
-                Raw data is available through <a
-                    src="https://www.drivendata.org/competitions/44/dengai-predicting-disease-spread/">DrivenData</a>.
+                Raw data is available through 
+                <a src="https://www.drivendata.org/competitions/44/dengai-predicting-disease-spread/">DrivenData</a>.
             </p>
             <br>
         </div>
@@ -76,7 +76,8 @@
                     3,000 species
                     of mosquitoes found across the globe. Mosquito-borne illnesses can be caused by bacteria, viruses,
                     or parasites
-                    transmitted to humans when the mosquito bites. Diseases include Malaria, Dengue, West Nile, Zika,
+                    transmitted to humans when the mosquito bites. Dengue is a viral disease spread by species of female mosquitoes of the Aedes type, 
+                    principally Aedes aegypti. Other diseases transmitted by mosquitoes include Malaria, West Nile, Zika,
                     Chikungunya,
                     and Yellow Fever. The spread of mosquito-borne disease is related to climate variables such as
                     temperature
@@ -88,7 +89,7 @@
             </div>
 
             <div class="col-md-8 well" id="tableau">
-                <div id="vizContainer" style="width:100%; height:500px; overflow: scroll;"></div>
+                <div id="vizContainer" style="width:100%; height:500px;"></div>
             </div>
 
         </div><br>
@@ -109,9 +110,9 @@
                     in
                     Southeast Asia and the Pacific islands. These days many of the nearly half billion cases per year
                     are
-                    occurring in Latin America. Dengue is spread by several species of female mosquitoes of the Aedes
-                    type,
-                    principally Aedes aegypti. </p>
+                    occurring in Latin America. <br><br> This project examined two tropical cities impacted by Dengue: 
+                    San Juan, Puerto Rico and Iquitos, Peru. Both cities have about 400,000 people. San Juan is a coastal city of about 400,000 people. Iquitos
+                is an inland city amid the Amazon Rainforest.</p>
             </div>
 
         </div>
@@ -119,20 +120,10 @@
         <div class="row customDen">
 
             <div class="col-md-4 well" id="disease">
-                <h2 style="text-align: center">Mosquito-borne disease </h2>
-                <p>Mosquito-borne disease is a common scourge throughout the world, causing hundreds of million of
-                    illnesses
-                    and millions of deaths every year. While most prevalent in tropical environments, there are over
-                    3,000 species
-                    of mosquitoes found across the globe. Mosquito-borne illnesses can be caused by bacteria, viruses,
-                    or parasites
-                    transmitted to humans when the mosquito bites. Diseases include Malaria, Dengue, West Nile, Zika,
-                    Chikungunya,
-                    and Yellow Fever. The spread of mosquito-borne disease is related to climate variables such as
-                    temperature
-                    and precipitation. Although the relationship complex, climate change may produce changes in mosquito
-                    prevalence
-                    and disease burden that will have significant public health implications worldwide.
+                <h2 style="text-align: center">Machine Learning Approach </h2>
+                <p> Our goal was to predict the number of dengue cases each week in each location based on environmental variables describing changes in temperature, precipitation, and vegetation. Predictions were generated based on a dataset with weekly cases from 1991 to 2007 for San Juan and 2001 to 2009 for Iquitos. <br><br>
+                    Two prediction models were used. Facebook Prophet forecasts time series data based on an additive model where non-linear trends are fit with yearly, weekly, and daily seasonality, plus holiday effects. TensorFlow is a Deep Learning library developed by Google that is used to perform complex numerical operations and several other tasks to model Deep Learning models. 
+                    
                 </p>
 
             </div>
@@ -199,8 +190,8 @@
         <a href="#myPage" title="To Top">
             <span class="glyphicon glyphicon-chevron-up"></span>
         </a>
-        <p>Ramneek Singh Chatha / Scott Clark / Graham Penrose / Bryan Souza </p>
-        <p>Data Analytics 2020</p>
+        <p class="footer-text">Ramneek Singh Chatha / Scott Clark / Graham Penrose / Bryan Souza <br>
+        Data Analytics 2020</p>
     </footer>
 
     <!-- Highcharts -->
