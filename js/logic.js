@@ -68,7 +68,6 @@ d3.csv("/Prophet/iq_train.csv").then(train => {
                     
                     tensorflowPredictions.forEach(function(d) {
                         list = [Date.parse(d.week_start_date), parseFloat(d.TensorFlow_Predictions)];
-                        console.log(d.TensorFlow_Predictions);
                         tensorflowPredicted_list.push(list);
                     })
 
