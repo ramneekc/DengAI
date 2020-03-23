@@ -146,7 +146,7 @@ function createCharts_sj(train, test, prophetPredict, tensorflowPredict) {
         responsive: {
             rules: [{
                 condition: {
-                    maxWidth: 100%
+                    maxWidth: 1200
                 }
             }]
         }
@@ -220,7 +220,7 @@ function createCharts_iq(train, test, prophetPredict, tensorflowPredict) {
         responsive: {
             rules: [{
                 condition: {
-                    maxWidth: 100%
+                    maxWidth: 1200
                 }
             }]
         }
