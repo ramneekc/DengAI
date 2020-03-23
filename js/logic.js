@@ -68,7 +68,6 @@ d3.csv("/Prophet/iq_train.csv").then(train => {
                     
                     tensorflowPredictions.forEach(function(d) {
                         list = [Date.parse(d.week_start_date), parseFloat(d.TensorFlow_Predictions)];
-                        console.log(d.TensorFlow_Predictions);
                         tensorflowPredicted_list.push(list);
                     })
 
@@ -126,8 +125,8 @@ function createCharts_sj(train, test, prophetPredict, tensorflowPredict) {
                 }
             }
         },
-        colors: ['#027a00', '#F51B00', '#06C', '#ff701d', '#000'],
-        // #2f7ed8, #0d233a, #8bbc21, #910000, #1aadce, #492970, #f28f43, #77a1e5, #c42525, #a6c96a, #ffffff
+        colors: ['#000', '#FF0000', '#06C', '#FF7E00', '#910000'],
+        // #2f7ed8, #0d233a, #8bbc21, #1aadce, #492970, #f28f43, #77a1e5, #c42525, #a6c96a, #ffffff
         series: [{
             name: "Train",
             data: train
@@ -200,8 +199,8 @@ function createCharts_iq(train, test, prophetPredict, tensorflowPredict) {
                 }
             }
         },
-        colors: ['#027a00', '#F51B00', '#06C', '#ff701d', '#000'],
-        // #2f7ed8, #0d233a, #8bbc21, #910000, #1aadce, #492970, #f28f43, #77a1e5, #c42525, #a6c96a, #ffffff
+        colors: ['#000', '#FF0000', '#06C', '#FF7E00', '#910000'],
+        // #2f7ed8, #0d233a, #8bbc21, #1aadce, #492970, #f28f43, #77a1e5, #c42525, #a6c96a, #ffffff
         series: [{
             name: "Train",
             data: train
