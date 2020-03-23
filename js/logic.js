@@ -1,10 +1,10 @@
-d3.csv("/Prophet/sj_train.csv").then(train => {
+d3.csv("Prophet/sj_train.csv").then(train => {
     // console.log(data);
-    d3.csv("/Prophet/sj_test.csv").then(test => {
+    d3.csv("Prophet/sj_test.csv").then(test => {
 
-        d3.csv("/Prophet/sj_predictions.csv").then(prophetPredictions => {
+        d3.csv("Prophet/sj_predictions.csv").then(prophetPredictions => {
             
-            d3.csv("/TensorFlow/sj_predictions.csv").then(tensorflowPredictions => {
+            d3.csv("TensorFlow/sj_predictions.csv").then(tensorflowPredictions => {
                     train_list = [];
                     test_list = [];
                     prophetPredicted_list = [];
@@ -39,13 +39,13 @@ d3.csv("/Prophet/sj_train.csv").then(train => {
 
 })
 
-d3.csv("/Prophet/iq_train.csv").then(train => {
+d3.csv("Prophet/iq_train.csv").then(train => {
     // console.log(data);
-    d3.csv("/Prophet/iq_test.csv").then(test => {
+    d3.csv("Prophet/iq_test.csv").then(test => {
 
-        d3.csv("/Prophet/iq_predictions.csv").then(prophetPredictions => {
+        d3.csv("Prophet/iq_predictions.csv").then(prophetPredictions => {
             
-            d3.csv("/TensorFlow/iq_predictions.csv").then(tensorflowPredictions => {
+            d3.csv("TensorFlow/iq_predictions.csv").then(tensorflowPredictions => {
                     train_list = [];
                     test_list = [];
                     prophetPredicted_list = [];
