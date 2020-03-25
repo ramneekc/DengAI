@@ -16,7 +16,6 @@ function initViz() {
         { "behavior": "EXACTLY", "maxSize": { "height": 500, "width": 800 } })
         .then(viz.setFrameSize(parseInt(200, 10), parseInt(200, 10)));
 
-
     var sheet2 = viz2.getWorkbook().getActiveSheet();
     sheet2.changeSizeAsync(
         { "behavior": "EXACTLY", "maxSize": { "height": 500, "width": 800 } })
