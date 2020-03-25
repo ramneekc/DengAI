@@ -11,8 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/highcharts.css">
-    <script src="js/tableau.js"></script>
-    <script src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+    
 </head>
 
 <body id="myPage" onload="initViz();" data-spy="scroll" data-target=".navbar" data-offset="60">
@@ -50,7 +49,7 @@
             <strong>Using Machine Learning to Predict the Spread of
                 <!-- <img alt="mosquito icon" title="mosquito icon"
                     src="https://img.icons8.com/office/80/000000/mosquito.png" id="mosquito" /> -->
-                <br><br>Mosquito-Borne Disease in Tropical Cities</strong>
+                <br>Mosquito-Borne Disease in Tropical Cities</strong>
         </h3>
     </div>
 
@@ -168,7 +167,7 @@
         <div id="sj-discuss" class="row">
             <div class="col-md-12">
                 <h2 style="text-align: center">San Juan Results Discussion</h2>
-                <p style='padding-right: 3%;padding-left: 3%;'>While we had data from 1991 – 2008 for San Juan, the time period previous to 2000 seemed to have unreliable trends, large outliers, and large fluctuations of the number of infected individuals, so the Facebook Prophet time series model was trained on data from 2000 onward.  To easily visualize how well the model can generalize and predict unknown values, we cut off the last year of the San Juan data set and used that for testing model accuracy.  For San Juan, the Facebook Prophet Model had a training mean absolute error (MAE) of 5.67 cases per week, and a testing MAE of 14.64 cases per week.  With true values up to 170 cases in one week for the week of October 1st , 2008, a MAE of about 15 on the testing data isn’t problematic, but still leaves plenty of room for improvement.  A major challenge in this machine learning competition is that the environmental factors do not encompass enough information to capture what could be causing the big spikes in the number of cases (as shown in the above graph in 2005 and 2007).  There were rules limiting our ability to bring in extra data sets for this competition, but some data related to travel, or socioeconomic fluctuations may bring in some more information that allows machine learning models to more effectively capture a relationship that explains the larger Dengue outbreaks. 
+                <p style='padding-right: 3%;padding-left: 3%;'>While we had data from 1991 – 2008 for San Juan, the time period previous to 2000 seemed to have unreliable trends, large outliers, and large fluctuations of the number of infected individuals, so the Facebook Prophet time series model was trained on data from 2000 onward, however the Google TensorFlow LSTM model was not noticeably impacted by these fluctuations and used the complete dataset. The models process the data in completely different manners and that requires preprocessing to be different, this difference is the reason that the Prophet model is able to output predictions for the entire dataset and TensorFlow output only the last year.  To easily visualize how well the model can generalize and predict unknown values, we cut off the last year of the San Juan data set and used that for testing model accuracy.  For San Juan, the Facebook Prophet Model had a training mean absolute error (MAE) of 5.67 cases per week, and a testing MAE of 14.64 cases per week, the TensorFlow model had a testing MAE of 23.31 cases per week.  With true values up to 170 cases in one week for the week of October 1st , 2008, a MAE of about 15 on the testing data isn’t problematic, but still leaves plenty of room for improvement.  A major challenge in this machine learning competition is that the environmental factors do not encompass enough information to capture what could be causing the big spikes in the number of cases (as shown in the above graph in 2005 and 2007).  There were rules limiting our ability to bring in extra data sets for this competition, but some data related to travel, or socioeconomic fluctuations may bring in some more information that allows machine learning models to more effectively capture a relationship that explains the larger Dengue outbreaks.  
                 </p>
             </div>
         </div>
@@ -190,7 +189,7 @@
             <div class="col-md-12">
                 <h2 style="text-align: center">Iquitos Results Discussion</h2>
                 <p style='padding-right: 3%;padding-left: 3%;'>
-                    Traditional time series models essentially operate by finding repeating trends within different time periods (like year, month, week, hour), then combine these trends with an overall trend to create time series predictions.  When looking at the above graph, generally speaking Iquitos has it’s larger spikes of cases in the earlier months of the year, however in 2008 there was a large outbreak of Dengue in October and that outbreak was then followed by Iquitos’s more normal increase in cases in January and February of 2009.  This large outlier and change in trend was throwing off the models predictions by adding a huge amount of uncertainty in the trend at the end of the training data.  In order to deal with this, we removed extreme outliers (self defined as being more than three times the interquartile range greater than the 3rd, or upper, quartile).  Removing these outliers reduced the overall accuracy of the training data, but seemed to allow the model to generalize the trend into the future with more certainty.  Similar to San Juan, Iquitos had an unreliable trend for the earlier years in the data set, so the Facebook Prophet model was trained on data from January 2005 to June 2009, then tested for prediction accuracy on the last year of data available.  The Facebook Prophet model had a training MAE of 5.29 cases per week and a testing MAE of 3.45 cases per week.  This may seem like the model is predicting the test year better than the training years, however the testing year does not contain outliers and mean measurements are sensitive to outliers so the improved MAE is to be expected.  
+                    Traditional time series models essentially operate by finding repeating trends within different time periods (like year, month, week, hour), then combine these trends with an overall trend to create time series predictions.  When looking at the above graph, generally speaking Iquitos has it’s larger spikes of cases in the earlier months of the year, however in 2008 there was a large outbreak of Dengue in October and that outbreak was then followed by Iquitos’s more normal increase in cases in January and February of 2009.  This large outlier and change in trend was throwing off the models predictions by adding a huge amount of uncertainty in the trend at the end of the training data.  In order to deal with this, we removed extreme outliers (self defined as being more than three times the interquartile range greater than the 3rd, or upper, quartile).  Removing these outliers reduced the overall accuracy of the training data, but seemed to allow the model to generalize the trend into the future with more certainty.  Similar to San Juan, Iquitos had an unreliable trend for the earlier years in the data set, so the Facebook Prophet model was trained on data from January 2005 to June 2009, then tested for prediction accuracy on the last year of data available.  The Facebook Prophet model had a training MAE of 5.29 cases per week and a testing MAE of 3.45 cases per week and the TensorFlow model had a testing MAE of 2.79 cases per week.  This may seem like the model is predicting the test year better than the training years, however the testing year does not contain outliers and mean measurements are sensitive to outliers so the improved MAE is to be expected. 
                     </p>
             </div>
         </div>
@@ -228,6 +227,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/logic.js"></script>
+    <script src="js/tableau.js"></script>
+    <script src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
     <script>
         $(document).ready(function () {
             // Add smooth scrolling to all links in navbar + footer link
