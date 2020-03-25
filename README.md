@@ -18,6 +18,8 @@ Our goal was to predict the number of dengue cases each week in each location ba
 Two prediction models were used. Facebook Prophet forecasts time series data based on an additive model where non-linear trends are fit with yearly, weekly, and daily seasonality, plus holiday effects. TensorFlow is a Deep Learning library developed by Google, we developed a simple Long Short-Term Memory(LSTM) model.
 
 ![prediction1](https://github.com/ramneekc/DengAI/blob/master/img/sj_predict.JPG)
+ 
+  
 ![prediction2](https://github.com/ramneekc/DengAI/blob/master/img/iq_predict.JPG)
 
 ### Conclusion
